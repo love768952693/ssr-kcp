@@ -1,0 +1,15 @@
+{
+  "lives": [
+    {
+      "group": "央视高清",
+      "channels": [
+        {
+          "name": "CCTV-4K超高清",
+          "urls": [
+            "http://iptv.tvfix.org/hls/cctv4k.m3u8"
+          ]
+        }
+      ]
+    }
+  ]
+}
