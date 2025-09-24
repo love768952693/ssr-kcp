@@ -1,2 +1,4 @@
+# 添加案例 Jp_Proxy.yaml
 #payload:
-#  - DOMAIN-SUFFIX,
+#  - DOMAIN-SUFFIX,7pzzv.us
+#  - IP-CIDR,1.0.0.1/32,no-resolve
