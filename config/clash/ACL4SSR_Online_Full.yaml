@@ -362,7 +362,7 @@ rule-providers:
     interval: 86400
     format: text
     type: http
-  Ai:
+  AI:
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Ruleset/AI.list
     path: ./ruleset/AI.list
     behavior: classical
