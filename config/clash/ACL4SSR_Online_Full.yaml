@@ -1,7 +1,3 @@
-#来源
-#https://github.com/mihomo-party-org/override-hub
-#https://raw.githubusercontent.com/mihomo-party-org/override-hub/main/yaml/ACL4SSR_Online_Full.yaml
-
 proxy-groups:
   - name: 🚀 节点选择
     type: select
@@ -36,6 +32,19 @@ proxy-groups:
       - 🇰🇷 韩国节点
       - 🚀 手动切换
       - DIRECT
+  - name: 💬 OpenAi
+    输入: select
+    proxies:
+      - 🚀 节点选择
+      - ♻️ 自动选择
+      - 🇸🇬 狮城节点
+      - 🇭🇰 香港节点
+      - 🇨🇳 台湾节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🇰🇷 韩国节点
+      - 🚀 手动切换
+      - DIRECT
   - name: 🤖 Ai平台
     输入: select
     proxies:
@@ -49,19 +58,6 @@ proxy-groups:
       - 🇰🇷 韩国节点
       - 🚀 手动切换
       - DIRECT
-  - name: 💬 OpenAi
-    输入: select
-    proxies:
-      - 🚀 节点选择
-      - ♻️ 自动选择
-      - 🇸🇬 狮城节点
-      - 🇭🇰 香港节点
-      - 🇨🇳 台湾节点
-      - 🇯🇵 日本节点
-      - 🇺🇲 美国节点
-      - 🇰🇷 韩国节点
-      - 🚀 手动切换
-      - DIRECT  
   - name: 📹 油管视频
     输入: select
     proxies:
@@ -103,7 +99,7 @@ proxy-groups:
       - 🇨🇳 台湾节点
       - 🇭🇰 香港节点
   - name: 🌍 国外媒体
-    输入: select
+    type: select
     proxies:
       - 🚀 节点选择
       - ♻️ 自动选择
@@ -116,7 +112,7 @@ proxy-groups:
       - 🚀 手动切换
       - DIRECT
   - name: 🌏 国内媒体
-    输入: select
+    type: select
     proxies:
       - DIRECT
       - 🇭🇰 香港节点
@@ -125,7 +121,7 @@ proxy-groups:
       - 🇯🇵 日本节点
       - 🚀 手动切换
   - name: 📢 谷歌FCM
-    输入: select
+    type: select
     proxies:
       - DIRECT
       - 🚀 节点选择
@@ -137,7 +133,7 @@ proxy-groups:
       - 🇰🇷 韩国节点
       - 🚀 手动切换
   - name: Ⓜ️ 微软Bing
-    输入: select
+    type: select
     proxies:
       - DIRECT
       - 🚀 节点选择
@@ -149,7 +145,7 @@ proxy-groups:
       - 🇰🇷 韩国节点
       - 🚀 手动切换
   - name: Ⓜ️ 微软云盘
-    输入: select
+    type: select
     proxies:
       - DIRECT
       - 🚀 节点选择
@@ -161,7 +157,7 @@ proxy-groups:
       - 🇰🇷 韩国节点
       - 🚀 手动切换
   - name: Ⓜ️ 微软服务
-    输入: select
+    type: select
     proxies:
       - 🚀 节点选择
       - DIRECT
@@ -173,7 +169,7 @@ proxy-groups:
       - 🇰🇷 韩国节点
       - 🚀 手动切换
   - name: 🍎 苹果服务
-    输入: select
+    type: select
     proxies:
       - DIRECT
       - 🚀 节点选择
@@ -185,7 +181,7 @@ proxy-groups:
       - 🇰🇷 韩国节点
       - 🚀 手动切换
   - name: 🎮 游戏平台
-    输入: select
+    type: select
     proxies:
       - DIRECT
       - 🚀 节点选择
@@ -205,23 +201,23 @@ proxy-groups:
       - 🚀 节点选择
       - ♻️ 自动选择
   - name: 🎯 全球直连
-    输入: select
+    type: select
     proxies:
       - DIRECT
       - 🚀 节点选择
       - ♻️ 自动选择
   - name: 🛑 广告拦截
-    输入: select
+    type: select
     proxies:
       - REJECT
       - DIRECT
   - name: 🍃 应用净化
-    输入: select
+    type: select
     proxies:
       - REJECT
       - DIRECT
   - name: 🐟 漏网之鱼
-    输入: select
+    type: select
     proxies:
       - 🚀 节点选择
       - ♻️ 自动选择
@@ -236,43 +232,43 @@ proxy-groups:
   - name: 🇭🇰 香港节点
     include-all: true
     filter: (?i)港|HK|hk|Hong Kong|HongKong|hongkong
-    输入: url-test
+    type: url-test
     interval: 300
     tolerance: 50
   - name: 🇯🇵 日本节点
     include-all: true
     filter: (?i)日本|川日|东京|大阪|泉日|埼玉|沪日|深日|JP|Japan
-    输入: url-test
+    type: url-test
     interval: 300
     tolerance: 50
   - name: 🇺🇲 美国节点
     include-all: true
     filter: (?i)美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States
-    输入: url-test
+    type: url-test
     interval: 300
     tolerance: 50
   - name: 🇨🇳 台湾节点
     include-all: true
     filter: (?i)台|新北|彰化|TW|Taiwan
-    输入: url-test
+    type: url-test
     interval: 300
     tolerance: 50
   - name: 🇸🇬 狮城节点
     include-all: true
     filter: (?i)新加坡|坡|狮城|SG|Singapore
-    输入: url-test
+    type: url-test
     interval: 300
     tolerance: 50
   - name: 🇰🇷 韩国节点
     include-all: true
     filter: (?i)KR|Korea|KOR|首尔|韩|韓
-    输入: url-test
+    type: url-test
     interval: 300
     tolerance: 50
   - name: 🎥 奈飞节点
     include-all: true
     filter: (?i)NF|奈飞|解锁|Netflix|NETFLIX|Media
-    输入: select
+    type: select
 
 rule-providers:
   LocalAreaNetwork:
@@ -316,77 +312,77 @@ rule-providers:
     behavior: classical
     interval: 86400
     format: text
-    输入: http
+    type: http
   SteamCN:
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Ruleset/SteamCN.list
     path: ./ruleset/SteamCN.list
     behavior: classical
     interval: 86400
     format: text
-    输入: http
+    type: http
   Bing:
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Bing.list
     path: ./ruleset/Bing.list
     behavior: classical
     interval: 86400
     format: text
-    输入: http
+    type: http
   OneDrive:
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/OneDrive.list
     path: ./ruleset/OneDrive.list
     behavior: classical
     interval: 86400
     format: text
-    输入: http
+    type: http
   Microsoft:
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Microsoft.list
     path: ./ruleset/Microsoft.list
     behavior: classical
     interval: 86400
     format: text
-    输入: http
+    type: http
   Apple:
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Apple.list
     path: ./ruleset/Apple.list
     behavior: classical
     interval: 86400
     format: text
-    输入: http
+    type: http
   Telegram:
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Telegram.list
     path: ./ruleset/Telegram.list
     behavior: classical
     interval: 86400
     format: text
-    输入: http
-  Ai:
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Ruleset/AI.list
-    path: ./ruleset/AI.list
-    behavior: classical
-    interval: 86400
-    format: text
-    输入: http 
+    type: http
   OpenAi:
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Ruleset/OpenAi.list
     path: ./ruleset/OpenAi.list
     behavior: classical
     interval: 86400
     format: text
-    输入: http
+    type: http
+  Ai:
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Ruleset/AI.list
+    path: ./ruleset/AI.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
   NetEaseMusic:
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Ruleset/NetEaseMusic.list
     path: ./ruleset/NetEaseMusic.list
     behavior: classical
     interval: 86400
     format: text
-    输入: http
+    type: http
   Epic:
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Ruleset/Epic.list
     path: ./ruleset/Epic.list
     behavior: classical
     interval: 86400
     format: text
-    输入: http
+    type: http
   Origin:
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Ruleset/Origin.list
     path: ./ruleset/Origin.list
@@ -449,49 +445,49 @@ rule-providers:
     behavior: classical
     interval: 86400
     format: text
-    输入: http
+    type: http
   ChinaMedia:
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ChinaMedia.list
     path: ./ruleset/ChinaMedia.list
     behavior: classical
     interval: 86400
     format: text
-    输入: http
+    type: http
   ProxyMedia:
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ProxyMedia.list
     path: ./ruleset/ProxyMedia.list
     behavior: classical
     interval: 86400
     format: text
-    输入: http
+    type: http
   ProxyGFWlist:
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ProxyGFWlist.list
     path: ./ruleset/ProxyGFWlist.list
     behavior: classical
     interval: 86400
     format: text
-    输入: http
+    type: http
   ChinaDomain:
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ChinaDomain.list
     path: ./ruleset/ChinaDomain.list
     behavior: domain
     interval: 86400
     format: text
-    输入: http
+    type: http
   ChinaCompanyIp:
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ChinaCompanyIp.list
     path: ./ruleset/ChinaCompanyIp.list
     behavior: ipcidr
     interval: 86400
     format: text
-    输入: http
+    type: http
   下载:
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Download.list
     path: ./ruleset/Download.list
     behavior: classical
     interval: 86400
     format: text
-    输入: http
+    type: http
 
 rules:
   - "RULE-SET,LocalAreaNetwork,🎯 全球直连"
@@ -506,8 +502,8 @@ rules:
   - "RULE-SET,Microsoft,Ⓜ️ 微软服务"
   - "RULE-SET,Apple,🍎 苹果服务"
   - "RULE-SET,Telegram,📲 电报消息"
-  - "RULE-SET,Ai,🤖 Ai平台"
   - "RULE-SET,OpenAi,💬 OpenAi"
+  - "RULE-SET,Ai,🤖 Ai平台"
   - "RULE-SET,NetEaseMusic,🎶 网易音乐"
   - "RULE-SET,Epic,🎮 游戏平台"
   - "RULE-SET,Origin,🎮 游戏平台"
