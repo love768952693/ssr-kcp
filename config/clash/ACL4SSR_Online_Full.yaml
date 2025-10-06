@@ -13,14 +13,14 @@ proxy-groups:
       - DIRECT
   - name: 🚀 手动切换
     include-all: true
-    输入: select
+    type: select
   - name: ♻️ 自动选择
-    输入: url-test
+    type: url-test
     include-all: true
     interval: 300
     tolerance: 50
   - name: 📲 电报消息
-    输入: select
+    type: select
     proxies:
       - 🚀 节点选择
       - ♻️ 自动选择
@@ -33,7 +33,7 @@ proxy-groups:
       - 🚀 手动切换
       - DIRECT
   - name: 💬 OpenAi
-    输入: select
+    type: select
     proxies:
       - 🚀 节点选择
       - ♻️ 自动选择
@@ -46,7 +46,7 @@ proxy-groups:
       - 🚀 手动切换
       - DIRECT
   - name: 🤖 Ai平台
-    输入: select
+    type: select
     proxies:
       - 🚀 节点选择
       - ♻️ 自动选择
@@ -59,7 +59,7 @@ proxy-groups:
       - 🚀 手动切换
       - DIRECT
   - name: 📹 油管视频
-    输入: select
+    type: select
     proxies:
       - 🚀 节点选择
       - ♻️ 自动选择
@@ -72,7 +72,7 @@ proxy-groups:
       - 🚀 手动切换
       - DIRECT
   - name: 🎥 奈飞视频
-    输入: select
+    type: select
     proxies:
       - 🚀 节点选择
       - ♻️ 自动选择
@@ -86,14 +86,14 @@ proxy-groups:
       - 🚀 手动切换
       - DIRECT
   - name: 📺 巴哈姆特
-    输入: select
+    type: select
     proxies:
       - 🇨🇳 台湾节点
       - 🚀 节点选择
       - 🚀 手动切换
       - DIRECT
   - name: 📺 哔哩哔哩
-    输入: select
+    type: select
     proxies:
       - 🎯 全球直连
       - 🇨🇳 台湾节点
@@ -481,7 +481,7 @@ rule-providers:
     interval: 86400
     format: text
     type: http
-  下载:
+  Download:
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Download.list
     path: ./ruleset/Download.list
     behavior: classical
