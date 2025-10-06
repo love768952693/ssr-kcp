@@ -304,7 +304,7 @@ rule-providers:
     format: text
     type: http
   GoogleFCM:
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash//Ruleset/GoogleFCM.list
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Ruleset/GoogleFCM.list
     path: ./ruleset/GoogleFCM.list
     behavior: classical
     interval: 86400
@@ -360,7 +360,7 @@ rule-providers:
     format: text
     type: http
   Ai:
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Ruleset/AI.list
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Ruleset/Ai.list
     path: ./ruleset/Ai.list
     behavior: classical
     interval: 86400
