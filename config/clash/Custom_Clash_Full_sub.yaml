@@ -8,28 +8,28 @@
 
 rule-providers:
   custom_direct:
-    输入: http
+    type: http
     behavior: classical
     url: https://testingcf.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Custom_Direct_Classical.yaml
     path: ./ruleset/custom_direct.yaml
     interval: 28800
 
   custom_proxy:
-    输入: http
+    type: http
     behavior: classical
     url: https://testingcf.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Custom_Proxy_Classical.yaml
     path: ./ruleset/custom_proxy.yaml
     interval: 28800
 
   steam_cdn:
-    输入: http
+    type: http
     behavior: classical
     url: https://testingcf.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Steam_CDN_Classical.yaml
     path: ./ruleset/steam_cdn.yaml
     interval: 2880
 
   nonstandard_port:
-    输入: http
+    type: http
     behavior: classical
     url: https://testingcf.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Custom_Port_Direct.yaml
     path: ./ruleset/nonstandard_port.yaml
@@ -37,21 +37,21 @@ rule-providers:
 
   # 手动添加的外部规则集
   proxy_lite:
-    输入: http
+    type: http
     behavior: classical
     url: https://testingcf.jsdelivr.net/gh/love768952693/ssr-kcp@refs/heads/main/config/clash/ProxyLite.yaml
     path: ./ruleset/proxy_lite.yaml
     interval: 28800
 
   dmm_jp:
-    输入: http
+    type: http
     behavior: classical
     url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/DMM/DMM.yaml
     path: ./ruleset/dmm_jp.yaml
     interval: 28800
 
   jp_proxy:
-    输入: http
+    type: http
     behavior: classical
     url: https://testingcf.jsdelivr.net/gh/love768952693/ssr-kcp@refs/heads/main/config/clash/Jp_Proxy.yaml
     path: ./ruleset/jp_proxy.yaml
@@ -59,21 +59,21 @@ rule-providers:
 
   # 一些外部规则合集（如 ACL4SSR 结构）
   geosite_google_cn:
-    输入: http
+    type: http
     behavior: domain
     url: https://testingcf.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite/google-cn.yaml
     path: ./ruleset/geosite_google_cn.yaml
     interval: 86400
 
   geosite_games_cn:
-    输入: http
+    type: http
     behavior: domain
     url: https://testingcf.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite/category-games@cn.yaml
     path: ./ruleset/geosite_games_cn.yaml
     interval: 86400
 
   geosite_social_media:
-    输入: http
+    type: http
     behavior: domain
     url: https://testingcf.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite/category-social-media-!cn.yaml
     path: ./ruleset/geosite_social_media.yaml
@@ -439,14 +439,14 @@ rules:
   - GEOSITE,whatsapp,💬 即时通讯
   - GEOSITE,wechat,DIRECT
   - GEOSITE,line,💬 即时通讯
-  - GEOSITE，discord，💬 即时通讯
-  - GEOSITE，snapchat，💬 即时通讯
+  - GEOSITE,discord,💬 即时通讯
+  - GEOSITE,snapchat,💬 即时通讯
   - GEOSITE,signal,💬 即时通讯
-  - GEOSITE，skype，💬 即时通讯
+  - GEOSITE,skype,💬 即时通讯
 
   # ====== 社交媒体 ======
-  - RULE-SET，geosite_social_media，🌐 社交媒体
-  - GEOSITE,facebook，🌐 社交媒体
+  - RULE-SET,geosite_social_media,🌐 社交媒体
+  - GEOSITE,facebook,🌐 社交媒体
   - GEOSITE,twitter,🌐 社交媒体
   - GEOSITE,instagram,🌐 社交媒体
   - GEOSITE,reddit,🌐 社交媒体
@@ -460,41 +460,41 @@ rules:
 
   # ====== AI 服务 ======
   - RULE-SET,geosite_openai,🤖 ChatGPT
-  - GEOSITE，anthropic，🤖 AI服务
+  - GEOSITE,anthropic,🤖 AI服务
   - GEOSITE,perplexity,🤖 AI服务
-  - GEOSITE，coze，🤖 AI服务
-  - GEOSITE，characterai，🤖 AI服务
-  - GEOSITE，midjourney，🤖 AI服务
-  - GEOSITE，runway，🤖 AI服务
-  - GEOSITE，copilot，🤖 Copilot
+  - GEOSITE,coze,🤖 AI服务
+  - GEOSITE,characterai,🤖 AI服务
+  - GEOSITE,midjourney,🤖 AI服务
+  - GEOSITE,runway,🤖 AI服务
+  - GEOSITE,copilot,🤖 Copilot
 
   # ====== 视频娱乐 ======
-  - GEOSITE，netflix，🎥 Netflix
+  - GEOSITE,netflix,🎥 Netflix
   - GEOSITE,disney,🎥 DisneyPlus
-  - GEOSITE，primevideo，🎥 PrimeVideo
+  - GEOSITE,primevideo,🎥 PrimeVideo
   - GEOSITE,spotify,🎧 Spotify
-  - GEOSITE，youtube，📹 YouTube
+  - GEOSITE,youtube,📹 YouTube
   - GEOSITE,tiktok,📹 YouTube
-  - GEOSITE，twitch，📹 YouTube
+  - GEOSITE,twitch,📹 YouTube
   - GEOSITE,bilibili,DIRECT
 
   # ====== 常见外站 / 搜索引擎 ======
-  - GEOSITE，google，🚀 手动选择
-  - GEOSITE,duckduckgo，🚀 手动选择
-  - GEOSITE，bing，🚀 手动选择
+  - GEOSITE,google,🚀 手动选择
+  - GEOSITE,duckduckgo,🚀 手动选择
+  - GEOSITE,bing,🚀 手动选择
   - GEOSITE,yahoo,🚀 手动选择
-  - GEOSITE，cloudflare，🚀 手动选择
-  - GEOSITE，github，🚀 手动选择
-  - GEOSITE，gitlab，🚀 手动选择
-  - GEOSITE，medium，🚀 手动选择
-  - GEOSITE，stackoverflow，🚀 手动选择
-  - GEOSITE，wikipedia，🚀 手动选择
-  - GEOSITE，nytimes，🚀 手动选择
+  - GEOSITE,cloudflare,🚀 手动选择
+  - GEOSITE,github,🚀 手动选择
+  - GEOSITE,gitlab,🚀 手动选择
+  - GEOSITE,medium,🚀 手动选择
+  - GEOSITE,stackoverflow,🚀 手动选择
+  - GEOSITE,wikipedia,🚀 手动选择
+  - GEOSITE,nytimes,🚀 手动选择
   - GEOSITE,bbc,🚀 手动选择
-  - GEOSITE，reuters，🚀 手动选择
-  - GEOSITE，coursera，🚀 手动选择
-  - GEOSITE，udemy，🚀 手动选择
-  - GEOSITE，openai，🤖 ChatGPT
+  - GEOSITE,reuters,🚀 手动选择
+  - GEOSITE,coursera,🚀 手动选择
+  - GEOSITE,udemy,🚀 手动选择
+  - GEOSITE,openai,🤖 ChatGPT
 
   # ====== 一般国外网站 ======
   - RULE-SET,custom_proxy,🚀 手动选择
@@ -511,4 +511,4 @@ rules:
   - RULE-SET,geoip_cn,DIRECT
 
   # ====== 默认与兜底 ======
-  - MATCH，🐟 漏网之鱼
+  - MATCH,🐟 漏网之鱼
