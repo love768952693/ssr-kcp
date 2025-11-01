@@ -54,14 +54,14 @@ rule-providers:
     interval: 28800
 
 # 代理分组 (Proxy Groups)
-# --- 修正顺序 1：定义无依赖的基础组 ---
+# --- 顺序 1：定义无依赖的基础组 ---
 proxy-groups:
   - name: 🎯 全球直连
     type: select
     proxies:
       - DIRECT
 
-  # --- 修正顺序 2：定义所有区域节点组 (依赖订阅节点) ---
+  # --- 顺序 2：定义所有区域节点组 (依赖订阅节点) ---
   - name: 🇭🇰 香港节点
     type: url-test
     url: https://www.gstatic.com/generate_204
@@ -147,28 +147,15 @@ proxy-groups:
     tolerance: 50
     filter: (家宽|家庭宽带|住宅)
 
-  # --- 修正顺序 3：定义“自动”组 (依赖区域节点组) ---
+  # --- 顺序 3：定义“自动”组 (依赖订阅节点, 遵循 .ini 的 '.*' 逻辑) ---
   - name: ♻️ 自动选择
     type: url-test
     url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
-    proxies:
-      - 🇭🇰 香港节点
-      - 🇺🇸 美国节点
-      - 🇯🇵 日本节点
-      - 🇸🇬 新加坡节点
-      - 🇼🇸 台湾节点
-      - 🇰🇷 韩国节点
-      - 🇨🇦 加拿大节点
-      - 🇬🇧 英国节点
-      - 🇫🇷 法国节点
-      - 🇩🇪 德国节点
-      - 🇳🇱 荷兰节点
-      - 🇹🇷 土耳其节点
-      - 🏠 家宽节点
-      - 🌐 其他地区
+    filter: '.*' # <-- 这是关键修正：使其成为扁平组，不再依赖其他组
 
+  # --- 顺序 4：定义所有策略组 (依赖以上所有组) ---
   - name: 🚀 手动选择
     type: select
     proxies:
@@ -214,7 +201,6 @@ proxy-groups:
     proxies:
       - 🐟 漏网之鱼
 
-  # --- 修正顺序 4：定义所有策略组 (依赖以上所有组) ---
   - name: 🔀 非标端口
     type: select
     proxies:
