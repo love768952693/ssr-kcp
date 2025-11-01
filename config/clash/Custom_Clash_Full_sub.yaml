@@ -1,0 +1,514 @@
+# =========================================================
+# Custom_OpenClash_Full.yaml
+# Converted from Custom_Clash_Full_sub.js
+# 原作者：https://github.com/Aethersailor
+# 格式转换：Sub-Store YAML Override 版本
+# 兼容平台：ClashMeta / Mihomo / OpenClash
+# =========================================================
+
+rule-providers:
+  custom_direct:
+    输入: http
+    behavior: classical
+    url: https://testingcf.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Custom_Direct_Classical.yaml
+    path: ./ruleset/custom_direct.yaml
+    interval: 28800
+
+  custom_proxy:
+    输入: http
+    behavior: classical
+    url: https://testingcf.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Custom_Proxy_Classical.yaml
+    path: ./ruleset/custom_proxy.yaml
+    interval: 28800
+
+  steam_cdn:
+    输入: http
+    behavior: classical
+    url: https://testingcf.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Steam_CDN_Classical.yaml
+    path: ./ruleset/steam_cdn.yaml
+    interval: 2880
+
+  nonstandard_port:
+    输入: http
+    behavior: classical
+    url: https://testingcf.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Custom_Port_Direct.yaml
+    path: ./ruleset/nonstandard_port.yaml
+    interval: 28800
+
+  # 手动添加的外部规则集
+  proxy_lite:
+    输入: http
+    behavior: classical
+    url: https://testingcf.jsdelivr.net/gh/love768952693/ssr-kcp@refs/heads/main/config/clash/ProxyLite.yaml
+    path: ./ruleset/proxy_lite.yaml
+    interval: 28800
+
+  dmm_jp:
+    输入: http
+    behavior: classical
+    url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/DMM/DMM.yaml
+    path: ./ruleset/dmm_jp.yaml
+    interval: 28800
+
+  jp_proxy:
+    输入: http
+    behavior: classical
+    url: https://testingcf.jsdelivr.net/gh/love768952693/ssr-kcp@refs/heads/main/config/clash/Jp_Proxy.yaml
+    path: ./ruleset/jp_proxy.yaml
+    interval: 28800
+
+  # 一些外部规则合集（如 ACL4SSR 结构）
+  geosite_google_cn:
+    输入: http
+    behavior: domain
+    url: https://testingcf.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite/google-cn.yaml
+    path: ./ruleset/geosite_google_cn.yaml
+    interval: 86400
+
+  geosite_games_cn:
+    输入: http
+    behavior: domain
+    url: https://testingcf.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite/category-games@cn.yaml
+    path: ./ruleset/geosite_games_cn.yaml
+    interval: 86400
+
+  geosite_social_media:
+    输入: http
+    behavior: domain
+    url: https://testingcf.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite/category-social-media-!cn.yaml
+    path: ./ruleset/geosite_social_media.yaml
+    interval: 86400
+
+  geosite_openai:
+    type: http
+    behavior: domain
+    url: https://testingcf.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite/openai.yaml
+    path: ./ruleset/geosite_openai.yaml
+    interval: 86400
+
+  geosite_microsoft:
+    type: http
+    behavior: domain
+    url: https://testingcf.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite/microsoft.yaml
+    path: ./ruleset/geosite_microsoft.yaml
+    interval: 86400
+
+  geosite_netflix:
+    type: http
+    behavior: domain
+    url: https://testingcf.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite/netflix.yaml
+    path: ./ruleset/geosite_netflix.yaml
+    interval: 86400
+
+  geosite_tiktok:
+    type: http
+    behavior: domain
+    url: https://testingcf.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite/tiktok.yaml
+    path: ./ruleset/geosite_tiktok.yaml
+    interval: 86400
+
+  geosite_steam:
+    type: http
+    behavior: domain
+    url: https://testingcf.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite/steam.yaml
+    path: ./ruleset/geosite_steam.yaml
+    interval: 86400
+
+  geosite_youtube:
+    type: http
+    behavior: domain
+    url: https://testingcf.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite/youtube.yaml
+    path: ./ruleset/geosite_youtube.yaml
+    interval: 86400
+
+  geosite_disney:
+    type: http
+    behavior: domain
+    url: https://testingcf.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite/disney.yaml
+    path: ./ruleset/geosite_disney.yaml
+    interval: 86400
+
+  geosite_spotify:
+    type: http
+    behavior: domain
+    url: https://testingcf.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite/spotify.yaml
+    path: ./ruleset/geosite_spotify.yaml
+    interval: 86400
+
+  geosite_category_entertainment:
+    type: http
+    behavior: domain
+    url: https://testingcf.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite/category-entertainment.yaml
+    path: ./ruleset/geosite_category_entertainment.yaml
+    interval: 86400
+
+  geosite_cn:
+    type: http
+    behavior: domain
+    url: https://testingcf.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite/cn.yaml
+    path: ./ruleset/geosite_cn.yaml
+    interval: 86400
+
+  geoip_cn:
+    type: http
+    behavior: ipcidr
+    url: https://testingcf.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geoip/cn.yaml
+    path: ./ruleset/geoip_cn.yaml
+    interval: 86400
+proxy-groups:
+  - name: "🚀 手动选择"
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - 🇭🇰 香港节点
+      - 🇺🇸 美国节点
+      - 🇯🇵 日本节点
+      - 🇸🇬 新加坡节点
+      - 🇼🇸 台湾节点
+      - 🇰🇷 韩国节点
+      - 🇨🇦 加拿大节点
+      - 🇬🇧 英国节点
+      - 🇫🇷 法国节点
+      - 🇩🇪 德国节点
+      - 🇳🇱 荷兰节点
+      - 🇹🇷 土耳其节点
+      - 🏠 家宽节点
+      - 🌐 其他地区
+      - 🎯 全球直连
+
+  - name: "♻️ 自动选择"
+    type: url-test
+    url: "https://www.gstatic.com/generate_204"
+    interval: 300
+    tolerance: 50
+    proxies:
+      - 🇭🇰 香港节点
+      - 🇺🇸 美国节点
+      - 🇯🇵 日本节点
+      - 🇸🇬 新加坡节点
+      - 🇼🇸 台湾节点
+      - 🇰🇷 韩国节点
+      - 🇨🇦 加拿大节点
+      - 🇬🇧 英国节点
+      - 🇫🇷 法国节点
+      - 🇩🇪 德国节点
+      - 🇳🇱 荷兰节点
+      - 🇹🇷 土耳其节点
+      - 🏠 家宽节点
+      - 🌐 其他地区
+
+  - name: "🎯 全球直连"
+    type: select
+    proxies:
+      - DIRECT
+
+  - name: "🐟 遵循规则"
+    type: select
+    proxies:
+      - 🐟 漏网之鱼
+
+  - name: "🐟 漏网之鱼"
+    type: select
+    proxies:
+      - 🇭🇰 香港节点
+      - 🇺🇸 美国节点
+      - 🇯🇵 日本节点
+      - 🇸🇬 新加坡节点
+      - 🇼🇸 台湾节点
+      - 🇰🇷 韩国节点
+      - 🇨🇦 加拿大节点
+      - 🇬🇧 英国节点
+      - 🇫🇷 法国节点
+      - 🇩🇪 德国节点
+      - 🇳🇱 荷兰节点
+      - 🇹🇷 土耳其节点
+      - 🏠 家宽节点
+      - 🌐 其他地区
+      - 🚀 手动选择
+      - ♻️ 自动选择
+      - 🎯 全球直连
+
+  - name: "💬 即时通讯"
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - 🇭🇰 香港节点
+      - 🇺🇸 美国节点
+      - 🇯🇵 日本节点
+      - 🇸🇬 新加坡节点
+      - 🇼🇸 台湾节点
+      - 🇰🇷 韩国节点
+      - 🇨🇦 加拿大节点
+      - 🇬🇧 英国节点
+      - 🇫🇷 法国节点
+      - 🇩🇪 德国节点
+      - 🇳🇱 荷兰节点
+      - 🇹🇷 土耳其节点
+      - 🏠 家宽节点
+      - 🌐 其他地区
+      - 🚀 手动选择
+      - 🎯 全球直连
+
+  - name: "🌐 社交媒体"
+    type: select
+    proxies:
+      - 🇭🇰 香港节点
+      - 🇺🇸 美国节点
+      - 🇯🇵 日本节点
+      - 🇸🇬 新加坡节点
+      - 🇼🇸 台湾节点
+      - 🇰🇷 韩国节点
+      - 🇨🇦 加拿大节点
+      - 🇬🇧 英国节点
+      - 🇫🇷 法国节点
+      - 🇩🇪 德国节点
+      - 🇳🇱 荷兰节点
+      - 🇹🇷 土耳其节点
+      - 🏠 家宽节点
+      - 🌐 其他地区
+      - 🚀 手动选择
+      - ♻️ 自动选择
+      - 🎯 全球直连
+
+  - name: "🤖 ChatGPT"
+    type: select
+    proxies:
+      - 🇭🇰 香港节点
+      - 🇺🇸 美国节点
+      - 🇯🇵 日本节点
+      - 🇸🇬 新加坡节点
+      - 🇼🇸 台湾节点
+      - 🇰🇷 韩国节点
+      - 🇨🇦 加拿大节点
+      - 🇬🇧 英国节点
+      - 🇫🇷 法国节点
+      - 🇩🇪 德国节点
+      - 🇳🇱 荷兰节点
+      - 🇹🇷 土耳其节点
+      - 🏠 家宽节点
+      - 🌐 其他地区
+      - 🚀 手动选择
+      - ♻️ 自动选择
+      - 🎯 全球直连
+
+  - name: "🤖 Copilot"
+    type: select
+    proxies:
+      - 🇭🇰 香港节点
+      - 🇺🇸 美国节点
+      - 🇯🇵 日本节点
+      - 🇸🇬 新加坡节点
+      - 🇼🇸 台湾节点
+      - 🇰🇷 韩国节点
+      - 🇨🇦 加拿大节点
+      - 🇬🇧 英国节点
+      - 🇫🇷 法国节点
+      - 🇩🇪 德国节点
+      - 🇳🇱 荷兰节点
+      - 🇹🇷 土耳其节点
+      - 🏠 家宽节点
+      - 🌐 其他地区
+      - 🚀 手动选择
+      - ♻️ 自动选择
+      - 🎯 全球直连
+
+  - name: "🤖 AI服务"
+    type: select
+    proxies:
+      - 🇭🇰 香港节点
+      - 🇺🇸 美国节点
+      - 🇯🇵 日本节点
+      - 🇸🇬 新加坡节点
+      - 🇼🇸 台湾节点
+      - 🇰🇷 韩国节点
+      - 🇨🇦 加拿大节点
+      - 🇬🇧 英国节点
+      - 🇫🇷 法国节点
+      - 🇩🇪 德国节点
+      - 🇳🇱 荷兰节点
+      - 🇹🇷 土耳其节点
+      - 🏠 家宽节点
+      - 🌐 其他地区
+      - 🚀 手动选择
+      - ♻️ 自动选择
+      - 🎯 全球直连
+
+  - name: "🎥 Netflix"
+    type: select
+    proxies:
+      - 🇸🇬 新加坡节点
+      - 🇭🇰 香港节点
+      - 🇺🇸 美国节点
+      - 🇯🇵 日本节点
+      - 🇼🇸 台湾节点
+      - 🇰🇷 韩国节点
+      - 🇨🇦 加拿大节点
+      - 🇬🇧 英国节点
+      - 🇫🇷 法国节点
+      - 🇩🇪 德国节点
+      - 🇳🇱 荷兰节点
+      - 🇹🇷 土耳其节点
+      - 🏠 家宽节点
+      - 🌐 其他地区
+      - 🚀 手动选择
+      - ♻️ 自动选择
+      - 🎯 全球直连
+
+  - name: "🎥 DisneyPlus"
+    type: select
+    proxies:
+      - 🇸🇬 新加坡节点
+      - 🇭🇰 香港节点
+      - 🇺🇸 美国节点
+      - 🇯🇵 日本节点
+      - 🇼🇸 台湾节点
+      - 🇰🇷 韩国节点
+      - 🇨🇦 加拿大节点
+      - 🇬🇧 英国节点
+      - 🇫🇷 法国节点
+      - 🇩🇪 德国节点
+      - 🇳🇱 荷兰节点
+      - 🇹🇷 土耳其节点
+      - 🏠 家宽节点
+      - 🌐 其他地区
+      - 🚀 手动选择
+      - ♻️ 自动选择
+      - 🎯 全球直连
+
+  - name: "🎥 PrimeVideo"
+    type: select
+    proxies:
+      - 🇸🇬 新加坡节点
+      - 🇭🇰 香港节点
+      - 🇺🇸 美国节点
+      - 🇯🇵 日本节点
+      - 🇼🇸 台湾节点
+      - 🇰🇷 韩国节点
+      - 🇨🇦 加拿大节点
+      - 🇬🇧 英国节点
+      - 🇫🇷 法国节点
+      - 🇩🇪 德国节点
+      - 🇳🇱 荷兰节点
+      - 🇹🇷 土耳其节点
+      - 🏠 家宽节点
+      - 🌐 其他地区
+      - 🚀 手动选择
+      - ♻️ 自动选择
+      - 🎯 全球直连
+
+  - name: "📹 YouTube"
+    type: select
+    proxies:
+      - 🇸🇬 新加坡节点
+      - 🇭🇰 香港节点
+      - 🇺🇸 美国节点
+      - 🇯🇵 日本节点
+      - 🇼🇸 台湾节点
+      - 🇰🇷 韩国节点
+      - 🇨🇦 加拿大节点
+      - 🇬🇧 英国节点
+      - 🇫🇷 法国节点
+      - 🇩🇪 德国节点
+      - 🇳🇱 荷兰节点
+      - 🇹🇷 土耳其节点
+      - 🏠 家宽节点
+      - 🌐 其他地区
+      - 🚀 手动选择
+      - ♻️ 自动选择
+rules:
+  # ====== 基础直连规则 ======
+  - RULE-SET,custom_direct,DIRECT
+  - RULE-SET,nonstandard_port,DIRECT
+  - GEOSITE,private,DIRECT
+  - GEOIP,private,DIRECT,no-resolve
+
+  # ====== 系统 / 更新直连 ======
+  - GEOSITE,apple,DIRECT
+  - GEOSITE,microsoft,DIRECT
+  - GEOSITE,cn,DIRECT
+  - GEOIP,CN,DIRECT
+
+  # ====== 特殊服务分流 ======
+  - RULE-SET,steam_cdn,🎯 全球直连
+  - GEOSITE,steam,🎯 全球直连
+  - GEOSITE,category-games@cn,🎯 全球直连
+  - GEOSITE,category-games@!cn,🚀 手动选择
+
+  # ====== 即时通讯 ======
+  - GEOSITE,telegram,💬 即时通讯
+  - GEOSITE,whatsapp,💬 即时通讯
+  - GEOSITE,wechat,DIRECT
+  - GEOSITE,line,💬 即时通讯
+  - GEOSITE，discord，💬 即时通讯
+  - GEOSITE，snapchat，💬 即时通讯
+  - GEOSITE,signal,💬 即时通讯
+  - GEOSITE，skype，💬 即时通讯
+
+  # ====== 社交媒体 ======
+  - RULE-SET，geosite_social_media，🌐 社交媒体
+  - GEOSITE,facebook，🌐 社交媒体
+  - GEOSITE,twitter,🌐 社交媒体
+  - GEOSITE,instagram,🌐 社交媒体
+  - GEOSITE,reddit,🌐 社交媒体
+  - GEOSITE,pinterest,🌐 社交媒体
+  - GEOSITE,tumblr,🌐 社交媒体
+  - GEOSITE,linkedin,🌐 社交媒体
+  - GEOSITE,quora,🌐 社交媒体
+  - GEOSITE,bluesky,🌐 社交媒体
+  - GEOSITE,threads,🌐 社交媒体
+  - GEOSITE,clubhouse,🌐 社交媒体
+
+  # ====== AI 服务 ======
+  - RULE-SET,geosite_openai,🤖 ChatGPT
+  - GEOSITE，anthropic，🤖 AI服务
+  - GEOSITE,perplexity,🤖 AI服务
+  - GEOSITE，coze，🤖 AI服务
+  - GEOSITE，characterai，🤖 AI服务
+  - GEOSITE，midjourney，🤖 AI服务
+  - GEOSITE，runway，🤖 AI服务
+  - GEOSITE，copilot，🤖 Copilot
+
+  # ====== 视频娱乐 ======
+  - GEOSITE，netflix，🎥 Netflix
+  - GEOSITE,disney,🎥 DisneyPlus
+  - GEOSITE，primevideo，🎥 PrimeVideo
+  - GEOSITE,spotify,🎧 Spotify
+  - GEOSITE，youtube，📹 YouTube
+  - GEOSITE,tiktok,📹 YouTube
+  - GEOSITE，twitch，📹 YouTube
+  - GEOSITE,bilibili,DIRECT
+
+  # ====== 常见外站 / 搜索引擎 ======
+  - GEOSITE，google，🚀 手动选择
+  - GEOSITE,duckduckgo，🚀 手动选择
+  - GEOSITE，bing，🚀 手动选择
+  - GEOSITE,yahoo,🚀 手动选择
+  - GEOSITE，cloudflare，🚀 手动选择
+  - GEOSITE，github，🚀 手动选择
+  - GEOSITE，gitlab，🚀 手动选择
+  - GEOSITE，medium，🚀 手动选择
+  - GEOSITE，stackoverflow，🚀 手动选择
+  - GEOSITE，wikipedia，🚀 手动选择
+  - GEOSITE，nytimes，🚀 手动选择
+  - GEOSITE,bbc,🚀 手动选择
+  - GEOSITE，reuters，🚀 手动选择
+  - GEOSITE，coursera，🚀 手动选择
+  - GEOSITE，udemy，🚀 手动选择
+  - GEOSITE，openai，🤖 ChatGPT
+
+  # ====== 一般国外网站 ======
+  - RULE-SET,custom_proxy,🚀 手动选择
+  - RULE-SET,proxy_lite,🚀 手动选择
+
+  # ====== 游戏相关 ======
+  - RULE-SET,dmm_jp,🇯🇵 日本节点
+  - RULE-SET,jp_proxy,🇯🇵 日本节点
+
+  # ====== 地区优化 ======
+  - RULE-SET,geosite_google_cn,DIRECT
+  - RULE-SET,geosite_games_cn,DIRECT
+  - RULE-SET,geosite_cn,DIRECT
+  - RULE-SET,geoip_cn,DIRECT
+
+  # ====== 默认与兜底 ======
+  - MATCH，🐟 漏网之鱼
