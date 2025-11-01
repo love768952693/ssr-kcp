@@ -9,7 +9,6 @@
 # ;Telegram 通知频道：https://t.me/custom_openclash_rules
 
 # 规则提供者 (Rule Providers)
-# 这些是根据您 "ruleset=...,clash-classic:..." 规则自动生成的
 rule-providers:
   Custom_Direct_Classical:
     type: http
@@ -55,9 +54,104 @@ rule-providers:
     interval: 28800
 
 # 代理分组 (Proxy Groups)
+# --- 修正顺序：先定义基础组 (Leaf Groups) ---
 proxy-groups:
-  # ;设置节点分组标志位
-  # ;节点地区分组参考本项目推荐机场而设立
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+  - name: ♻️ 自动选择
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    filter: '.*'
+  - name: 🇭🇰 香港节点
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    filter: (港|HK|hk|Hong Kong|HongKong|hongkong|深港)
+  - name: 🇺🇸 美国节点
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    filter: (美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States|UnitedStates)
+  - name: 🇯🇵 日本节点
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    filter: (日本|川日|东京|大阪|泉日|埼玉|沪日|深日|(?<!尼|-)日|JP|Japan|🇯🇵)
+  - name: 🇸🇬 新加坡节点
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    filter: (新加坡|坡|狮城|SG|Singapore)
+  - name: 🇼🇸 台湾节点
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    filter: (台|新北|彰化|TW|Taiwan)
+  - name: 🇰🇷 韩国节点
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    filter: (KR|Korea|KOR|首尔|韩|韓)
+  - name: 🇨🇦 加拿大节点
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    filter: (加拿大|Canada|渥太华|温哥华|卡尔加里)
+  - name: 🇬🇧 英国节点
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    filter: (英国|Britain|United Kingdom|England|伦敦)
+  - name: 🇫🇷 法国节点
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    filter: (法国|France|巴黎)
+  - name: 🇩🇪 德国节点
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    filter: (德国|Germany|柏林|法兰克福)
+  - name: 🇳🇱 荷兰节点
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    filter: (荷兰|Netherlands|阿姆斯特丹)
+  - name: 🇹🇷 土耳其节点
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    filter: (土耳其|Turkey|Türkiye)
+  - name: 🌐 其他地区
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    filter: (^(?!.*(港|HK|hk|Hong Kong|HongKong|hongkong|深港|美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States|UnitedStates|日本|川日|东京|大阪|泉日|埼玉|沪日|深日|(?<!尼|-)日|JP|Japan|🇯🇵|新加坡|坡|狮城|SG|Singapore|台|新北|彰化|TW|Taiwan|KR|Korea|KOR|首尔|韩|韓|加拿大|Canada|渥太华|温哥华|卡尔加里|英国|Britain|United Kingdom|England|伦敦|法国|France|巴黎|德国|Germany|柏林|法兰克福|荷兰|Netherlands|阿姆斯特丹|土耳其|Turkey|Türkiye|家宽|家庭宽带|住宅)).*)
+  - name: 🏠 家宽节点
+    type: url-test
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    filter: (家宽|家庭宽带|住宅)
+
+  # --- 修正顺序：后定义依赖基础组的策略组 (Policy Groups) ---
   - name: 🚀 手动选择
     type: select
     proxies:
@@ -76,13 +170,35 @@ proxy-groups:
       - 🇹🇷 土耳其节点
       - 🏠 家宽节点
       - 🌐 其他地区
-    filter: '.*'
-  - name: ♻️ 自动选择
-    type: url-test
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-    filter: '.*'
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🇭🇰 香港节点
+      - 🇺🇸 美国节点
+      - 🇯🇵 日本节点
+      - 🇸🇬 新加坡节点
+      - 🇼🇸 台湾节点
+      - 🇰🇷 韩国节点
+      - 🇨🇦 加拿大节点
+      - 🇬🇧 英国节点
+      - 🇫🇷 法国节点
+      - 🇩🇪 德国节点
+      - 🇳🇱 荷兰节点
+      - 🇹🇷 土耳其节点
+      - 🏠 家宽节点
+      - 🌐 其他地区
+      - 🚀 手动选择
+      - ♻️ 自动选择
+      - 🎯 全球直连
+  - name: 🐟 遵循规则
+    type: select
+    proxies:
+      - 🐟 漏网之鱼
+  - name: 🔀 非标端口
+    type: select
+    proxies:
+      - 🐟 遵循规则
+      - 🎯 全球直连
   - name: 📄 日服刮削
     type: select
     proxies:
@@ -128,7 +244,6 @@ proxy-groups:
       - 🌐 其他地区
       - 🚀 手动选择
       - ♻️ 自动选择
-    filter: '.*'
   - name: 📞 Talkatone
     type: select
     proxies:
@@ -149,7 +264,6 @@ proxy-groups:
       - 🚀 手动选择
       - ♻️ 自动选择
       - 🎯 全球直连
-    filter: '.*'
   - name: 🚀 GitHub
     type: select
     proxies:
@@ -189,7 +303,6 @@ proxy-groups:
       - 🌐 其他地区
       - 🚀 手动选择
       - ♻️ 自动选择
-    filter: '.*'
   - name: 🤖 Copilot
     type: select
     proxies:
@@ -210,7 +323,6 @@ proxy-groups:
       - 🚀 手动选择
       - ♻️ 自动选择
       - 🎯 全球直连
-    filter: '.*'
   - name: 🤖 AI服务
     type: select
     proxies:
@@ -230,7 +342,6 @@ proxy-groups:
       - 🌐 其他地区
       - 🚀 手动选择
       - ♻️ 自动选择
-    filter: '.*'
   - name: 🎶 TikTok
     type: select
     proxies:
@@ -251,7 +362,6 @@ proxy-groups:
       - 🚀 手动选择
       - ♻️ 自动选择
       - 🎯 全球直连
-    filter: '.*'
   - name: 📹 YouTube
     type: select
     proxies:
@@ -271,7 +381,6 @@ proxy-groups:
       - 🌐 其他地区
       - 🚀 手动选择
       - ♻️ 自动选择
-    filter: '.*'
   - name: 🎥 Netflix
     type: select
     proxies:
@@ -291,7 +400,6 @@ proxy-groups:
       - 🌐 其他地区
       - 🚀 手动选择
       - ♻️ 自动选择
-    filter: '.*'
   - name: 🎥 DisneyPlus
     type: select
     proxies:
@@ -311,7 +419,6 @@ proxy-groups:
       - 🌐 其他地区
       - 🚀 手动选择
       - ♻️ 自动选择
-    filter: '.*'
   - name: 🎥 HBO
     type: select
     proxies:
@@ -332,7 +439,6 @@ proxy-groups:
       - 🚀 手动选择
       - ♻️ 自动选择
       - 🎯 全球直连
-    filter: '.*'
   - name: 🎥 PrimeVideo
     type: select
     proxies:
@@ -353,7 +459,6 @@ proxy-groups:
       - 🚀 手动选择
       - ♻️ 自动选择
       - 🎯 全球直连
-    filter: '.*'
   - name: 🎥 AppleTV+
     type: select
     proxies:
@@ -374,7 +479,6 @@ proxy-groups:
       - 🚀 手动选择
       - ♻️ 自动选择
       - 🎯 全球直连
-    filter: '.*'
   - name: 🎥 Emby
     type: select
     proxies:
@@ -395,7 +499,6 @@ proxy-groups:
       - 🚀 手动选择
       - ♻️ 自动选择
       - 🎯 全球直连
-    filter: '.*'
   - name: 🎻 Spotify
     type: select
     proxies:
@@ -416,7 +519,6 @@ proxy-groups:
       - 🚀 手动选择
       - ♻️ 自动选择
       - 🎯 全球直连
-    filter: '.*'
   - name: 📺 Bahamut
     type: select
     proxies:
@@ -437,13 +539,12 @@ proxy-groups:
       - 🇫🇷 法国节点
       - 🇩🇪 德国节点
       - 🇳🇱 荷兰节点
-      - 🇹🇷 土耳Ki节点
+      - 🇹🇷 土耳其节点
       - 🏠 家宽节点
       - 🌐 其他地区
       - 🚀 手动选择
       - ♻️ 自动选择
       - 🎯 全球直连
-    filter: '.*'
   - name: 💳 PayPal
     type: select
     proxies:
@@ -464,7 +565,6 @@ proxy-groups:
       - 🚀 手动选择
       - ♻️ 自动选择
       - 🎯 全球直连
-    filter: '.*'
   - name: 🛒 国外电商
     type: select
     proxies:
@@ -485,7 +585,6 @@ proxy-groups:
       - 🚀 手动选择
       - ♻️ 自动选择
       - 🎯 全球直连
-    filter: '.*'
   - name: 📢 谷歌FCM
     type: select
     proxies:
@@ -626,7 +725,6 @@ proxy-groups:
       - 🌐 其他地区
       - 🚀 手动选择
       - ♻️ 自动选择
-    filter: '.*'
   - name: ⏬ PT站点
     type: select
     proxies:
@@ -647,7 +745,6 @@ proxy-groups:
       - 🚀 手动选择
       - ♻️ 自动选择
       - 🎯 全球直连
-    filter: '.*'
   - name: 🚀 测速工具
     type: select
     proxies:
@@ -668,125 +765,6 @@ proxy-groups:
       - 🌐 其他地区
       - 🚀 手动选择
       - ♻️ 自动选择
-    filter: '.*'
-  - name: 🐟 漏网之鱼
-    type: select
-    proxies:
-      - 🇭🇰 香港节点
-      - 🇺🇸 美国节点
-      - 🇯🇵 日本节点
-      - 🇸🇬 新加坡节点
-      - 🇼🇸 台湾节点
-      - 🇰🇷 韩国节点
-      - 🇨🇦 加拿大节点
-      - 🇬🇧 英国节点
-      - 🇫🇷 法国节点
-      - 🇩🇪 德国节点
-      - 🇳🇱 荷兰节点
-      - 🇹🇷 土耳其节点
-      - 🏠 家宽节点
-      - 🌐 其他地区
-      - 🚀 手动选择
-      - ♻️ 自动选择
-      - 🎯 全球直连
-    filter: '.*'
-  - name: 🔀 非标端口
-    type: select
-    proxies:
-      - 🐟 遵循规则
-      - 🎯 全球直连
-  - name: 🇭🇰 香港节点
-    type: url-test
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-    filter: (港|HK|hk|Hong Kong|HongKong|hongkong|深港)
-  - name: 🇺🇸 美国节点
-    type: url-test
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-    filter: (美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States|UnitedStates)
-  - name: 🇯🇵 日本节点
-    type: url-test
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-    filter: (日本|川日|东京|大阪|泉日|埼玉|沪日|深日|(?<!尼|-)日|JP|Japan|🇯🇵)
-  - name: 🇸🇬 新加坡节点
-    type: url-test
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-    filter: (新加坡|坡|狮城|SG|Singapore)
-  - name: 🇼🇸 台湾节点
-    type: url-test
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-    filter: (台|新北|彰化|TW|Taiwan)
-  - name: 🇰🇷 韩国节点
-    type: url-test
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-    filter: (KR|Korea|KOR|首尔|韩|韓)
-  - name: 🇨🇦 加拿大节点
-    type: url-test
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-    filter: (加拿大|Canada|渥太华|温哥华|卡尔加里)
-  - name: 🇬🇧 英国节点
-    type: url-test
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-    filter: (英国|Britain|United Kingdom|England|伦敦)
-  - name: 🇫🇷 法国节点
-    type: url-test
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-    filter: (法国|France|巴黎)
-  - name: 🇩🇪 德国节点
-    type: url-test
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-    filter: (德国|Germany|柏林|法兰克福)
-  - name: 🇳🇱 荷兰节点
-    type: url-test
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-    filter: (荷兰|Netherlands|阿姆斯特丹)
-  - name: 🇹🇷 土耳其节点
-    type: url-test
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-    filter: (土耳其|Turkey|Türkiye)
-  - name: 🌐 其他地区
-    type: url-test
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-    filter: (^(?!.*(港|HK|hk|Hong Kong|HongKong|hongkong|深港|美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States|UnitedStates|日本|川日|东京|大阪|泉日|埼玉|沪日|深日|(?<!尼|-)日|JP|Japan|🇯🇵|新加坡|坡|狮城|SG|Singapore|台|新北|彰化|TW|Taiwan|KR|Korea|KOR|首尔|韩|韓|加拿大|Canada|渥太华|温哥华|卡尔加里|英国|Britain|United Kingdom|England|伦敦|法国|France|巴黎|德国|Germany|柏林|法兰克福|荷兰|Netherlands|阿姆斯特丹|土耳其|Turkey|Türkiye|家宽|家庭宽带|住宅)).*)
-  - name: 🏠 家宽节点
-    type: url-test
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-    filter: (家宽|家庭宽带|住宅)
-  - name: 🎯 全球直连
-    type: select
-    proxies:
-      - DIRECT
-  - name: 🐟 遵循规则
-    type: select
-    proxies:
-      - 🐟 漏网之鱼
 
 # 分流规则 (Rules)
 rules:
